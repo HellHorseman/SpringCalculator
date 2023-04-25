@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CalculatorController {
-//    private final CalculatorService calculatorService;
+    private CalculatorService calculatorService = new CalculatorService();
 //
 //    public CalculatorController(CalculatorService calculatorService) {
 //        this.calculatorService = calculatorService;
@@ -14,26 +14,22 @@ public class CalculatorController {
 
     @GetMapping(path = "/calculator")
     public String greetings() {
-        return "Добро пожаловать в калькулятор";
+        return calculatorService.greetings();
     }
     @GetMapping(path = "/calculator/plus")
     public String sum(@RequestParam int num1, @RequestParam int num2) {
-        int sum = num1 + num2;
-        return num1 + " + " + num2  + " = " + sum;
+        return calculatorService.sum(num1, num2);
     }
     @GetMapping(path = "/calculator/minus")
     public String diff(@RequestParam int num1, @RequestParam int num2) {
-        int difference = num1 - num2;
-        return num1 + " - " + num2  + " = " + difference;
+        return calculatorService.diff(num1, num2);
     }
     @GetMapping(path = "/calculator/multiple")
     public String mult(@RequestParam int num1, @RequestParam int num2) {
-        int multiple = num1 * num2;
-        return num1 + " * " + num2  + " = " + multiple;
+        return calculatorService.mult(num1, num2);
     }
     @GetMapping(path = "/calculator/divide")
     public String div(@RequestParam int num1, @RequestParam int num2) {
-        int divide = num1 / num2;
-        return num1 + " / " + num2  + " = " + divide;
+        return calculatorService.div(num1, num2);
     }
 }
