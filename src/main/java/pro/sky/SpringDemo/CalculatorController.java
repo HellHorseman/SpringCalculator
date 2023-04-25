@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CalculatorController {
-    private CalculatorService calculatorService = new CalculatorService();
-//
-//    public CalculatorController(CalculatorService calculatorService) {
-//        this.calculatorService = calculatorService;
-//    }
+    private final pro.sky.SpringDemo.CalculatorService calculatorService;
+
+    public CalculatorController(pro.sky.SpringDemo.CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
+    }
 
     @GetMapping(path = "/calculator")
     public String greetings() {
