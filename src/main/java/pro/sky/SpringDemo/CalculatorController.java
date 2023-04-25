@@ -21,4 +21,19 @@ public class CalculatorController {
         int sum = num1 + num2;
         return num1 + " + " + num2  + " = " + sum;
     }
+    @GetMapping(path = "/calculator/minus")
+    public String diff(@RequestParam int num1, @RequestParam int num2) {
+        int difference = num1 - num2;
+        return num1 + " - " + num2  + " = " + difference;
+    }
+    @GetMapping(path = "/calculator/multiple")
+    public String mult(@RequestParam int num1, @RequestParam int num2) {
+        int multiple = num1 * num2;
+        return num1 + " * " + num2  + " = " + multiple;
+    }
+    @GetMapping(path = "/calculator/divide")
+    public String div(@RequestParam int num1, @RequestParam int num2) {
+        int divide = num1 / num2;
+        return num1 + " / " + num2  + " = " + divide;
+    }
 }
