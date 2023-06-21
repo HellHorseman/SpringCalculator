@@ -1,24 +1,37 @@
 package pro.sky.SpringDemo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/calculator")
 public class CalculatorController {
-//    private final CalculatorService calculatorService;
-//
-//    public CalculatorController(CalculatorService calculatorService) {
-//        this.calculatorService = calculatorService;
-//    }
+    private final pro.sky.SpringDemo.CalculatorService calculatorService;
 
-    @GetMapping(path = "/calculator")
-    public String greetings() {
-        return "Добро пожаловать в калькулятор";
+    public CalculatorController(pro.sky.SpringDemo.CalculatorService calculatorService) {
+        this.calculatorService = calculatorService;
     }
-    @GetMapping(path = "/calculator/plus")
+
+    @GetMapping
+    public String greetings() {
+        return calculatorService.greetings();
+    }
+    @GetMapping(path = "/plus")
     public String sum(@RequestParam int num1, @RequestParam int num2) {
-        int sum = num1 + num2;
-        return num1 + " + " + num2  + " = " + sum;
+        return calculatorService.sum(num1, num2);
+    }
+    @GetMapping(path = "/minus")
+    public String diff(@RequestParam int num1, @RequestParam int num2) {
+        return calculatorService.diff(num1, num2);
+    }
+    @GetMapping(path = "/multiple")
+    public String mult(@RequestParam int num1, @RequestParam int num2) {
+        return calculatorService.mult(num1, num2);
+    }
+    @GetMapping(path = "/divide")
+    public String div(@RequestParam int num1, @RequestParam int num2) {
+        return calculatorService.div(num1, num2);
     }
 }
