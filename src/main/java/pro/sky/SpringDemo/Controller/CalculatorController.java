@@ -1,16 +1,17 @@
-package pro.sky.SpringDemo;
+package pro.sky.SpringDemo.Controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.sky.SpringDemo.Service.CalculatorService;
 
 @RestController
 @RequestMapping("/calculator")
 public class CalculatorController {
-    private final pro.sky.SpringDemo.CalculatorService calculatorService;
+    private final CalculatorService calculatorService;
 
-    public CalculatorController(pro.sky.SpringDemo.CalculatorService calculatorService) {
+    public CalculatorController(CalculatorService calculatorService) {
         this.calculatorService = calculatorService;
     }
 

@@ -1,4 +1,4 @@
-package pro.sky.SpringDemo;
+package pro.sky.SpringDemo.Service;
 
 import org.springframework.stereotype.Service;
 
